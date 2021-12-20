@@ -1,48 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
 
-<body style="background-color:#2b2222;">
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
 
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
 
-<h1 style="color:purple"> Project Diva Custom Charts</h1> 
+.tablink:hover {
+  background-color: #777;
+}
 
- <p><img src="MIKU.png" alt="MIKU.png" style="float:right;width:400px;height:600px;">
-<p style="color:white"> Hello! This website is dedicated to preserving all custom charts from Project Diva F/F2nd before servers are shut down. This is quite an ambitious project and won't be complete for a while. For now I only have a handful of F2nd charts, only available with a japenese copy of the game.</p>
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
 
+#Home {background-color: red;}
+#News {background-color: green;}
+#Contact {background-color: blue;}
+#About {background-color: orange;}
+</style>
+</head>
+<body>
 
+<button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
+<button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
+<button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
+<button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
 
-<h1 style="color:purple"> How It Works</h1>
+<div id="Home" class="tabcontent">
+  <h3>Home</h3>
+  <p>Home is where the heart is..</p>
+</div>
 
-<p style="color:white"> There are two types of charts. Encrypted and decrypted. Encrypted works for real hardware, decrypted works for an emulator (RPCS3). If you have selected an encrypted song pack and want to play on an emulator, refer to the tutorial down below. As for the charts, they have a special way of loading. They each take up a slot on the custom chart list, so you MUST download one of the packs and you cannot add your own charts unless you have expierience with this. So before importing any songs, read the song list and decide which pack you want. </p>
- 
- <h1 style="color:purple"> Song Packs </h1>
-<p style="color:white"> Song Pack 1 (Encrypted)(Project Diva F2nd)(About 80 Songs) </p>
-<a href="songlist.txt" download>
-<p style="color:white"> Song List </a> </p>
- <p style="color:white"> US </p>
-<a href="" download>
- <p style="color:white"> JP </a> </p>
- <p style="color:white"> EU </p>
- 
- 
-<h1 style="color:purple"> How To Use On Emulator </h1>
+<div id="News" class="tabcontent">
+  <h3>News</h3>
+  <p>Some news this fine day!</p> 
+</div>
 
-<p style="color:white"> If you have chosen a decrypted song pack, skip this step. If not please download pfdtool.exe with the link <a href="https://mega.nz/file/rsQTTI4T"> here </a> (decryption key: nBGNBtWJYOuFkVtrbBiof8S6tYiH2BMQnjUehpnR60s) Now once that has been downloaded follow the steps below:
-<p><img src="Guide.PNG" alt="Guide.PNG" style="float:bottom;width:503px;height:170px;"> <br>
- <p style="color:white"> Once you have your decrypted songs, you must put the  songs from the Music folder into RPCS3\dev_hdd0\music on your pc. If that folder does not exist just make it. Then put all of the individual song folders in the folder named RPCS3\dev_hdd0\home\00000001\savedata. After these steps the charts should appear on your edit menu!</p>
+<div id="Contact" class="tabcontent">
+  <h3>Contact</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
 
-<p><img src="LEN.png" alt="LEN.png" style="float:right;width:250px;height:349px;">
-<h1 style="color:purple"> How To Use On Original Hardware </h1>
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>Who we are and what we do.</p>
+</div>
 
-<p style="color:white"> For original hardware you must download an encrypted song pack. Next, get a USB drive and put all of the songs into PS3/SAVEDATA (If its not there, make the folders yourself) Next drag and drop the "music" folder from the song pack you downloaded onto the root of the USB drive. Then plug in your USB drive and everything should work!
- 
- 
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
 
-
-
-
-
-<h1 style="color:green"> Info and Special Thanks </h1>
-
-
-
- 
- 
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
